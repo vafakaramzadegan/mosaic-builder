@@ -1,0 +1,28 @@
+{
+	"name" : "vafakaramzadegan/MosaicBuilder",
+	"type" : "library",
+	"description" : "Create photo mosaics with ease in PHP",
+	"keywords" : [
+		"graphics", "image", "gd", "mosaic"
+	],
+	"homepage" : "https://github.com/vafakaramzadegan/MosaicBuilder",
+	"support": {
+        "docs": "https://github.com/vafakaramzadegan/MosaicBuilder/blob/main/README.md",
+        "issues": "https://github.com/vafakaramzadegan/MosaicBuilder/issues"
+    },
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Vafa Karamzadegan",
+			"email" : "vafa.k@live.com",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"php" : ">=7.0"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Vafakaramzadegan\\" : "src/"
+		}
+	}
+}
