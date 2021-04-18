@@ -31,8 +31,7 @@ use Vafakaramzadegan\MosaicBuilder;
 ```
 
 ## Using MosaicBuilder
-Suppose there is a directory containing a number of your favorite images (
-these images will be used to build the final mosaic image):
+Suppose there is a directory containing a number of your favorite images (will be used to build the final mosaic image):
 
 `/home/YourUserName/foo/bar/images`
 
@@ -57,5 +56,35 @@ All you have to do is:
         // choose the image to create a photo mosaic from
         create_from_path("/home/YourUserName/image.jpg")->
         // output mosaic image to the Browser
+        output();
+```
+
+Scanning a directory each time you create a mosaic can take a long time. MosaicBuilder has the ability to scale down images and cache them for future use. this greately improves the performance.
+
+```php
+<?php
+
+    $builder = new MosaicBuilder();
+    $builder->
+        // load current cache. we're going to append new images to the cache, not overwriting it.
+        load_cache()->
+        // scan multiple directories
+        scan_dir("/home/YourUserName/foo/bar/flowers")->
+        scan_dir("/home/YourUserName/foo/bar/cars")->
+        scan_dir("/home/YourUserName/foo/bar/sights")->
+        scan_dir("/home/YourUserName/foo/bar/people")->
+        // you must eventually update the cache
+        update_cache();
+```
+
+From now, you can create mosaics from these cached images in a short amount of time:
+
+```php
+<?php
+
+    $builder = new MosaicBuilder();
+    $builder->
+        load_cache()->
+        create_from_path("/home/YourUserName/image.jpg")->
         output();
 ```
