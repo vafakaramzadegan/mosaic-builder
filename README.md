@@ -88,3 +88,16 @@ From now, you can create mosaics from these cached images in a short amount of t
         create_from_path("/home/YourUserName/image.jpg")->
         output();
 ```
+
+instead of sending the final image directly to the browser, you can also save it to disk or just have it returned to you for furthur processing:
+
+```php
+<?php
+    
+    // send image to the browser
+    $builder->output();
+    // save to the disk
+    $builder->save('/home/YourUserName/mosaic.jpg');
+    // get as gd image
+    $mosaic = $builder->get_as_image();
+```
